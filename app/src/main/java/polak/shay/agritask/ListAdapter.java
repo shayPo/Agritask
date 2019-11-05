@@ -86,6 +86,7 @@ public class ListAdapter extends Adapter<ListAdapter.Holder> {
             StringBuilder text = new StringBuilder();
             int maxSize = 6;
             maxSize = maxSize - text.length();
+            text.append("item ");
             text.append(mMaxText.subSequence(0, maxSize));
             text.append(index);
             mText.setText(text.toString());
