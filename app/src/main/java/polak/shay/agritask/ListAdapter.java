@@ -16,12 +16,13 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import polak.shay.agritask.model.CustomObservable;
 import polak.shay.agritask.model.DataItem;
 
 public class ListAdapter extends Adapter<ListAdapter.Holder> {
     private List<DataItem> mData;
     private int mUpdateIndex = 18;
-    private Observable mDataIndexInfo = new Observable();
+    private CustomObservable mDataIndexInfo = new CustomObservable();
 
 
     public void addObservers(Observer observer) {
@@ -50,7 +51,7 @@ public class ListAdapter extends Adapter<ListAdapter.Holder> {
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         if (position == mUpdateIndex) {
             mUpdateIndex+=20;
-            mDataIndexInfo.hasChanged();
+            mDataIndexInfo.Changed();
             mDataIndexInfo.notifyObservers();
         }
         holder.setup(mData.get(position), position);

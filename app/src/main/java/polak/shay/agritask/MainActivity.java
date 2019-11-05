@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
         list.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         mListAdapter = new ListAdapter();
         list.setAdapter(mListAdapter);
+        mListAdapter.addObservers(this);
         addData();
     }
 
